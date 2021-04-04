@@ -2,7 +2,7 @@ TARGET := led
 OBJ := start.o main.o
 
 $(TARGET).bin:$(OBJ)
-	arm-linux-gnueabihf-ld -Ttext 0X87800000 $^ -o $(TARGET).elf
+	arm-linux-gnueabihf-ld -Timx6ul.lds $^ -o $(TARGET).elf
 	arm-linux-gnueabihf-objcopy -O binary -S -g $(TARGET).elf $(TARGET).bin
 	arm-linux-gnueabihf-objdump -D $(TARGET).elf > $(TARGET).dis
 
